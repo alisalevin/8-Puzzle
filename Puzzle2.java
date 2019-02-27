@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Puzzle2 {
 	
@@ -66,7 +65,7 @@ public class Puzzle2 {
 		//Final Output
 		System.out.println("First 3 Moves of A* Search Strategy: ");
 		puzzle.printSolutionPath(solution, initialState); 
-		System.out.println("Number of Moves Required " + solution.size());
+		System.out.println("Number of Moves Required: " + solution.size());
 		System.out.println("Number of States Explored: " + puzzle.explored.size()); 
 		System.out.println("Search Time: " + (totalTime / 1000000) + " milliseconds");
 	}
@@ -164,11 +163,11 @@ public class Puzzle2 {
 				Puzzle2 down = new Puzzle2(downState, depth, downPath, downF); 
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(right)) && (!frontier.contains(right))) {
+				if ((!exploredContains(right)) && (!frontier.contains(right))) {
 					right.addToPath("Right"); 
 					frontier.add(right);
 				}
-				if ((!explored.contains(down)) && (!frontier.contains(down))) {
+				if ((!exploredContains(down)) && (!frontier.contains(down))) {
 					down.addToPath("Down"); 
 					frontier.add(down);
 				}
@@ -190,11 +189,11 @@ public class Puzzle2 {
 				Puzzle2 down = new Puzzle2(downState, depth, downPath, downF); 
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(left)) && (!frontier.contains(left))) {
+				if ((!exploredContains(left)) && (!frontier.contains(left))) {
 					left.addToPath("Left"); 
 					frontier.add(left);
 				}
-				if ((!explored.contains(down)) && (!frontier.contains(down))) {
+				if ((!exploredContains(down)) && (!frontier.contains(down))) {
 					down.addToPath("Down"); 
 					frontier.add(down);
 				}
@@ -216,11 +215,11 @@ public class Puzzle2 {
 				Puzzle2 up = new Puzzle2(upState, depth, upPath, upF); 
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(right)) && (!frontier.contains(right))) {
+				if ((!exploredContains(right)) && (!frontier.contains(right))) {
 					right.addToPath("Right"); 
 					frontier.add(right);
 				}
-				if ((!explored.contains(up)) && (!frontier.contains(up))) {
+				if ((!exploredContains(up)) && (!frontier.contains(up))) {
 					up.addToPath("Up"); 
 					frontier.add(up);
 				}
@@ -241,11 +240,11 @@ public class Puzzle2 {
 				Puzzle2 up = new Puzzle2(upState, depth, upPath, upF); 
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(left)) && (!frontier.contains(left))) {
+				if ((!exploredContains(left)) && (!frontier.contains(left))) {
 					left.addToPath("Left"); 
 					frontier.add(left);
 				}
-				if ((!explored.contains(up)) && (!frontier.contains(up))) {
+				if ((!exploredContains(up)) && (!frontier.contains(up))) {
 					up.addToPath("Up"); 
 					frontier.add(up);
 				}
@@ -272,15 +271,15 @@ public class Puzzle2 {
 				Puzzle2 down = new Puzzle2(downState, depth, downPath, downF);  
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(right)) && (!frontier.contains(right))) {
+				if ((!exploredContains(right)) && (!frontier.contains(right))) {
 					right.addToPath("Right");
 					frontier.add(right);
 				}
-				if ((!explored.contains(left)) && (!frontier.contains(left))) {
+				if ((!exploredContains(left)) && (!frontier.contains(left))) {
 					left.addToPath("Left"); 
 					frontier.add(left);
 				}
-				if ((!explored.contains(down)) && (!frontier.contains(down))) {
+				if ((!exploredContains(down)) && (!frontier.contains(down))) {
 					down.addToPath("Down"); 
 					frontier.add(down);
 				}
@@ -307,15 +306,15 @@ public class Puzzle2 {
 				Puzzle2 down = new Puzzle2(downState, depth, downPath, downF);  
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(right)) && (!frontier.contains(right))) {
+				if ((!exploredContains(right)) && (!frontier.contains(right))) {
 					right.addToPath("Right"); 
 					frontier.add(right);
 				}
-				if ((!explored.contains(up)) && (!frontier.contains(up))) {
+				if ((!exploredContains(up)) && (!frontier.contains(up))) {
 					up.addToPath("Up"); 
 					frontier.add(up);
 				}
-				if ((!explored.contains(down)) && (!frontier.contains(down))) {
+				if ((!exploredContains(down)) && (!frontier.contains(down))) {
 					down.addToPath("Down"); 
 					frontier.add(down);
 				}
@@ -342,15 +341,15 @@ public class Puzzle2 {
 				Puzzle2 down = new Puzzle2(downState, depth, downPath, downF);  
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(left)) && (!frontier.contains(left))) {
+				if ((!exploredContains(left)) && (!frontier.contains(left))) {
 					left.addToPath("Left"); 
 					frontier.add(left);
 				}
-				if ((!explored.contains(up)) && (!frontier.contains(up))) {
+				if ((!exploredContains(up)) && (!frontier.contains(up))) {
 					up.addToPath("Up"); 
 					frontier.add(up);
 				}
-				if ((!explored.contains(down)) && (!frontier.contains(down))) {
+				if ((!exploredContains(down)) && (!frontier.contains(down))) {
 					down.addToPath("Down"); 
 					frontier.add(down);
 				}
@@ -377,15 +376,15 @@ public class Puzzle2 {
 				Puzzle2 up = new Puzzle2(upState, depth, upPath, upF); 
 				
 				//Adds new states to frontier if they are not already explored or in the frontier 
-				if ((!explored.contains(right)) && (!frontier.contains(right))) {
+				if ((!exploredContains(right)) && (!frontier.contains(right))) {
 					right.addToPath("Right"); 
 					frontier.add(right);
 				}
-				if ((!explored.contains(left)) && (!frontier.contains(left))) {
+				if ((!exploredContains(left)) && (!frontier.contains(left))) {
 					left.addToPath("Left"); 
 					frontier.add(left);
 				}
-				if ((!explored.contains(up)) && (!frontier.contains(up))) {
+				if ((!exploredContains(up)) && (!frontier.contains(up))) {
 					up.addToPath("Up"); 
 					frontier.add(up);
 				}
@@ -420,19 +419,19 @@ public class Puzzle2 {
 			Puzzle2 down = new Puzzle2(downState, depth, downPath, downF); 
 			
 			//Adds new states to frontier if they are not already explored or in the frontier 
-			if ((!explored.contains(right)) && (!frontier.contains(right))) {
+			if ((!exploredContains(right)) && (!frontier.contains(right))) {
 				right.addToPath("Right"); 
 				frontier.add(right);
 			}
-			if ((!explored.contains(left)) && (!frontier.contains(left))) {
+			if ((!exploredContains(left)) && (!frontier.contains(left))) {
 				left.addToPath("Left"); 
 				frontier.add(left);
 			}
-			if ((!explored.contains(up)) && (!frontier.contains(up))) {
+			if ((!exploredContains(up)) && (!frontier.contains(up))) {
 				up.addToPath("Up"); 
 				frontier.add(up);
 			}
-			if ((!explored.contains(down)) && (!frontier.contains(down))) {
+			if ((!exploredContains(down)) && (!frontier.contains(down))) {
 				down.addToPath("Down"); 
 				frontier.add(down);
 			}
@@ -780,5 +779,31 @@ public class Puzzle2 {
 			}
 		}
 		return -1; 
+	}
+	
+	/*
+	 * Converts integer array state to string state
+	 * @param state – state to be converted to string
+	 * @return – string version of given state
+	 */
+	public String stateToString(int[] state) {
+	        String newState = ""; 
+		for (int i = 0; i < 9; i++) {
+			newState += state[i];
+		}
+		return newState; 
+	}
+	
+	/*
+	 * Traverses explored set and determines if it contains a given Puzzle2 object with the same state
+	 * @param puzzle – a Puzzle2 object with the same state
+	 * @return – true if the explored set contains a Puzzle2 object with the same state, false otherwise
+	 */
+	public Boolean exploredContains(Puzzle2 puzzle) {
+		for (int i = 0; i < explored.size(); i++) {
+			//Checks if two Puzzle2 objects have the same states (by converting those states to comparable strings)
+			if (stateToString(explored.get(i).getState()).equals(stateToString(puzzle.getState()))) return true; 
+		}
+		return false; 
 	}
 }

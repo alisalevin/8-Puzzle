@@ -6,13 +6,15 @@ public class AStarPriorityQueue {
 	ArrayList<Puzzle2> priorityQueue = new ArrayList<Puzzle2>(); 
 	
 	/*
-	 * Checks if priority queue contains Puzzle2 object
+	 * Checks if priority queue contains Puzzle2 object with the same state
 	 * @param puzzle – a Puzzle2 object
-	 * @return true if the priority queue contains puzzle, false otherwise 
+	 * @return true if the priority queue contains a puzzle with the same state, false otherwise 
 	 */
 	public Boolean contains(Puzzle2 puzzle) {
-		if (priorityQueue.contains(puzzle)) return true; 
-		else return false; 
+		for (int i = 0; i < priorityQueue.size(); i++) {
+			if (stateToString(priorityQueue.get(i).getState()).equals(stateToString(puzzle.getState()))) return true; 
+		}
+		return false; 
 	}
 	
 	/*
@@ -52,5 +54,18 @@ public class AStarPriorityQueue {
 		//Gets index of puzzle with minimum priority function and returns that puzzle
 		int index = priorityQueue.indexOf(minPuzzle);
 		return priorityQueue.remove(index); 
+	}
+	
+	/*
+	 * Converts integer array state to string state
+	 * @param state – state to be converted to string
+	 * @return – string version of given state
+	 */
+	public String stateToString(int[] state) {
+	        String newState = ""; 
+		for (int i = 0; i < 9; i++) {
+			newState += state[i];
+		}
+		return newState; 
 	}
 }
